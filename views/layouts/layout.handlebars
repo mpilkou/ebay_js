@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>ueBay</title>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- Ikons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous"/>
+
+    <link rel='stylesheet' href='/css/style.css'/>
+
+    {{!-- <script src="http://localhost:4000/socket.io/socket.io.js"></script> --}}
+    {{!-- <script src="localhost:4000/socket.io/socket.io.js"></script> --}}
+    <script src="/socket.io/socket.io.js"></script>
+    {{!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> --}}
+
+    {{!-- <script src='/js/jquery-3.2.0.min.js'></script> --}}
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="../../">ueBay</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          {{#if user}}
+          {{!-- <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link" href="/user/messages">Messages
+              <span id="lamp" class="badge badge-primary badge-pill">
+                {{!-- <i class="fas fa-lightbulb"></i> --}}
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/addLot">Add lot</a>
+          </li>
+          {{/if}}
+          {{!-- <li class="nav-item">
+            <a class="nav-link" href="/">Disabled</a>
+          </li> --}}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+            {{#if user}}
+            
+            {{!-- <a class="nav-link" href="#">Messages</a> --}}
+            {{!-- <li class="nav-item active">
+            </li> --}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/user/history">History</a>
+                  {{!-- <a class="dropdown-item" href="/user/settings">Settings</a> --}}
+                  {{!-- <a class="dropdown-item" href="#">Another action</a> --}}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/users/logout">Exit</a>
+                </div>
+            </li>
+            {{else}}
+            <li class="nav-item active">
+              <a class="nav-link" href="/users/login">LogIn/SignUp</a>
+            </li>
+            {{/if}}
+            {{!-- <li>
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </li> --}}
+          </ul>
+        </form>
+      </div>
+    </nav>
+    <div>
+        <div class="col-lg-12">
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+    </div>
+    <div>
+      {{{body}}}
+    </div>
+    
+  </body>
+</html>

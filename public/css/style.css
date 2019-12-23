@@ -1,0 +1,58 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  background-color: #fbfbf0;
+}
+#auction_container ul {
+  list-style-type: none;
+}
+#auction_container li {
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#auction_container li .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+#auction_container li .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+#auction_container li div div {
+  margin: 0.5% 5%;
+}
+#form_container {
+  width: 60%;
+  min-width: 300px;
+  max-width: 1000px;
+  top: 25%;
+  margin-left: 25%;
+  padding: 15px;
+  border-radius: 1%;
+  border: 1px solid gray;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: inherit;
+}
+.form-check {
+  margin-bottom: 2%;
+}
+#login {
+  width: 49%;
+  padding-right: 1%;
+}
+#signup {
+  width: 49%;
+  padding: 1%;
+  border-radius: 5%;
+  background-color: #b3b3b3;
+}
